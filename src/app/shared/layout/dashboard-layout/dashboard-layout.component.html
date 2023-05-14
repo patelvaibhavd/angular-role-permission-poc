@@ -1,0 +1,5 @@
+<!-- <app-dashboard-header></app-dashboard-header> -->
+<app-dashboard-sidebar  [isExpanded]="sidebarExpanded" (toggleSidebar)="sidebarExpanded = !sidebarExpanded"></app-dashboard-sidebar>
+<div class="content" [ngClass]="{ 'sidebarExpanded': sidebarExpanded }">
+  <router-outlet></router-outlet>
+</div>
