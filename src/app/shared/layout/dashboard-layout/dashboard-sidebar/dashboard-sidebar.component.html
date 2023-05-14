@@ -1,0 +1,58 @@
+<div class="sidebar" [ngClass]="{ 'expanded': isExpanded }">
+    <div class="header">
+      <h1 class="title">
+        <img src="/assets/images/logo.png" width="40" height="30"/>
+          <a href="https://github.com/patelvaibhavd" target="_blank"><img class="ml-10" src="/assets/images/github-mark-white.png" width="20" height="20"/></a>
+      </h1>
+      <div class="toggle" (click)="handleSidebarToggle()">
+        <span class="chevron"></span>
+      </div>
+    </div>
+    <div class="content">
+      <div class="link" *ngFor="let menu of menuList">
+        <div class="content" [routerLink]="menu.routerLink" [routerLinkActive]="'active'">
+          <div class="icon">
+            <i [class]="menu?.icon" aria-hidden="true"></i>
+          </div>
+          <div class="title">{{menu.name}}</div>
+        </div>
+      </div>
+      <div class="link">
+        <div class="content">
+          <div class="icon">
+            <i class="fa fa-github" aria-hidden="true"></i>
+          </div>
+          <div class="title" (click)="goToRepo()">Repository</div>
+        </div>
+      </div>
+      <div class="link">
+        <div class="content">
+          <div class="icon">
+            <i class="fa fa-sign-out" aria-hidden="true"></i>
+          </div>
+          <div class="title" (click)="logout()">Logout</div>
+        </div>
+      </div>
+      <!-- Child Menu Referance -->
+      <!-- <div class="link with-children">
+        <div class="content" [routerLink]="['/configuration']" [routerLinkActive]="'active'">
+          <div class="icon">
+            IC
+          </div>
+          <div class="title">Configuration</div>
+        </div>
+        <div class="children">
+          <div class="link">
+            <div class="content" [routerLink]="['/configuration']" [queryParams]="{ 'child': '1' }"
+              [routerLinkActive]="'active'">
+              <div class="icon">
+                IC
+              </div>
+              <div class="title">child 1</div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </div>
+    <div class="footer"></div>
+  </div>
